@@ -218,7 +218,7 @@ func Fetch_Rebeldes(tipo string) string {
 	return RetornarString
 }
 
-func Cierre() string {
+func Cierre() {
 
 	//CONEXION DATANODE 1
 	connS, err := grpc.Dial("dist042:50051", grpc.WithInsecure())
@@ -265,8 +265,6 @@ func Cierre() string {
 			Body: "CIERRE",
 		})
 
-	return "DATANODE 1,2 y 3 CERRADOS : NAMENODE CERRADO >>"
-
 }
 
 type server struct {
@@ -301,6 +299,10 @@ func (s *server) Intercambio(ctx context.Context, msg *pb.Message) (*pb.Message,
 	if msg.Body == "CIERRE" {
 		Cierre()
 		msn = "DATANODES CERRADOS EXITOSAMENTE, NAMENODE CERRANDO ... >> "
+		return &pb.Message{Body: msn}, nil
+		
+	}
+	if msg.Body == "END" {
 		os.Exit(1)
 	}
 

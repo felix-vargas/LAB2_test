@@ -26,11 +26,16 @@ func Comunicacion(DataTipo string) {
 			&pb.Message{
 				Body: DataTipo,
 			})
-
+		
 		if err != nil {
 			panic("No se puede crear el mensaje " + err.Error())
 		}
 		fmt.Println(res.Body) //respuesta del laboratorio
+		
+		_, _ = serviceCliente.Intercambio(context.Background(),
+			&pb.Message{
+				Body: "END",
+			})
 	} else {
 		res, err := serviceCliente.Intercambio(context.Background(),
 			&pb.Message{
@@ -83,7 +88,6 @@ func main() {
 		case "2":
 
 			Comunicacion("CIERRE")
-			flag = false
 
 		default:
 			fmt.Println("Opcion no valida")
