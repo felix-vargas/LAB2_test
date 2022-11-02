@@ -1,25 +1,26 @@
-# Tarea 1 - Grupo 11
-
+# Tarea 2 - Grupo 11
 
 ### Integrantes
 
-   Fémix Vargas - 201944526-K
-   
-   Alejandro Hernández - 201723540-3
+Félix Vargas - 201944526-K
+
+Alejandro Hernández - 201723540-3
+
 
 ### Para ejecutar:
 
-   -dist041: En esta máquina se tendrá que ejecutar la Central con “make central” y también se tendrá que ejecutar un laboratorio con “make laboratorio”
-   
-   -dist042: En esta máquina se tendrá que ejecutar un laboratorio con “make laboratorio”
-   
-   -dist043: En esta máquina se tendrá que ejecutar un laboratorio con “make laboratorio”
-   
-   -dist044: En esta máquina se tendrá que ejecutar un laboratorio con “make laboratorio”
-   
-   -Para terminar la ejecución se tiene que ocupar el comando ctrl+C en la terminar que se ejecuta la Central que es la “dist041”
-   
+-dist041: En esta maquina se tiene que ejecutar el comando "make docker-namenode"
+
+-dist042: En esta maquina se tiene         que ejecutar el comando "make docker-datanode"
+
+-dist043: En esta maquina se tiene que ejecutar el comando "make docker-datanode" al igual que "make docker-combine"
+
+-dist044: En esta maquian se tiene que ejecutar el comando "make docker-datanode" al igual que "make docker-rebelde"
+
+
 ### Aclaraciones:
 
-   -Se ocupa la libreria "syscall" porque era necesario para manejar el comando CRTL+C.
-"# lab2-dist" 
+-Se asume que el formato de entrada de input para combine no tiene espacio entre los ':' de cada componente, como se muestra a continuación:
+MILITAR:213:EL AGUILA ESTA EN EL NIDO
+
+-Cada maquina tiene un README.md particular para la ejecución de lo pertinente a esta.
