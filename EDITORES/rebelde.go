@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"time"
+	"os"
 
 	pb "github.com/Kendovvul/Ejemplo/Proto"
 	"google.golang.org/grpc"
@@ -88,7 +89,7 @@ func main() {
 		case "2":
 
 			Comunicacion("CIERRE")
-
+			os.Exit(1)
 		default:
 			fmt.Println("Opcion no valida")
 		}
