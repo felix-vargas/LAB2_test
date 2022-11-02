@@ -82,8 +82,7 @@ func main() {
 
 		case "2":
 
-			fmt.Println("Realizar ACA cierre de las otras cosas")
-
+			Comunicacion("CIERRE")
 			flag = false
 
 		default:

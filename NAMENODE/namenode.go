@@ -229,13 +229,10 @@ func Cierre() string {
 
 	serviceCliente := pb.NewMessageServiceClient(connS)
 
-	_, err = serviceCliente.Intercambio(context.Background(),
+	_, _ = serviceCliente.Intercambio(context.Background(),
 		&pb.Message{
 			Body: "CIERRE",
 		})
-	if err != nil {
-		panic("No se puede crear el mensaje " + err.Error())
-	}
 
 	//CONEXION DATANODE 2
 	connS, err = grpc.Dial("dist043:50051", grpc.WithInsecure())
@@ -248,13 +245,10 @@ func Cierre() string {
 
 	serviceCliente = pb.NewMessageServiceClient(connS)
 
-	_, err = serviceCliente.Intercambio(context.Background(),
+	_, _ = serviceCliente.Intercambio(context.Background(),
 		&pb.Message{
 			Body: "CIERRE",
 		})
-	if err != nil {
-		panic("No se puede crear el mensaje " + err.Error())
-	}
 
 	//CONEXION DATANODE 3
 	connS, err = grpc.Dial("dist044:50051", grpc.WithInsecure())
@@ -266,13 +260,10 @@ func Cierre() string {
 
 	serviceCliente = pb.NewMessageServiceClient(connS)
 
-	_, err = serviceCliente.Intercambio(context.Background(),
+	_, _ = serviceCliente.Intercambio(context.Background(),
 		&pb.Message{
 			Body: "CIERRE",
 		})
-	if err != nil {
-		panic("No se puede crear el mensaje " + err.Error())
-	}
 
 	return "DATANODE 1,2 y 3 CERRADOS : NAMENODE CERRADO >>"
 
@@ -309,6 +300,7 @@ func (s *server) Intercambio(ctx context.Context, msg *pb.Message) (*pb.Message,
 	}
 	if msg.Body == "CIERRE" {
 		Cierre()
+		msn = "DATANODES CERRADOS EXITOSAMENTE, NAMENODE CERRANDO ... >> "
 		os.Exit(1)
 	}
 
